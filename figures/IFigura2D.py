@@ -1,10 +1,10 @@
 from abc import ABC, abstractmethod
 
-class Figura3D(ABC):
+class Figure2d(ABC):
     @abstractmethod
-    def calcular_volumen(self):
+    def perimeter(self) -> float:
         pass
 
     @abstractmethod
-    def calcular_superficie(self):
+    def area(self) -> float:
         pass
