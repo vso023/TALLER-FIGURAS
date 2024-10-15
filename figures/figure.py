@@ -1,12 +1,10 @@
 from abc import ABC, abstractmethod
 
 class Figure(ABC):
-    _id_counter = 0
 
-    def __init__(self, type):
-        Figure._id_counter += 1
+    def __init__(self, type, id_unico):
         self._type = type
-        self._id = Figure._id_counter
+        self._id = id_unico
 
     @property
     def id(self):
@@ -17,5 +15,5 @@ class Figure(ABC):
         return self._type
 
     @abstractmethod
-    def to_json(self):
+    def to_dict(self):
         pass

@@ -14,11 +14,11 @@ class Cube(Figure, Figure3D):
     def surface(self):
         return 6 * (self.height ** 2)
     
-    def to_json(self):
-        return json.dumps({ #json.dumps() function will convert a subset of Python objects into a json string
+    def to_dict(self):
+        return { #json.dumps() function will convert a subset of Python objects into a json string
             "tipo": self.type,
             "id": self.id,
             "altura": self.height,
             "volumen": self.volume(),
             "superficie": self.surface()
-        })
+        }

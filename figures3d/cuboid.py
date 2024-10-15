@@ -16,8 +16,8 @@ class Cuboid(Figure, Figure3D):
     def surface(self):
         return (2 * self.length * self.width) + (2 * self.length * self.height) + (2 * self.width * self.height)
 
-    def to_json(self):
-        return json.dumps({
+    def to_dict(self):
+        return {
             #json.dumps() function will convert a subset of Python objects into a json string
             "tipo": self.type,
             "id": self.id,
@@ -29,4 +29,4 @@ class Cuboid(Figure, Figure3D):
             
         }
 
-        )
+    
