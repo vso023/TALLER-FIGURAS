@@ -30,7 +30,7 @@ class App:
 
     def select_2dfigure(self):
         options = ['Circulo', 'Rectangulo', 'Cuadrado']
-        selected_option = self.popup.read_menu_choice_string("Seleccione una figure 2D", options)
+        selected_option = self.popup.read_menu_choice_combobox("Seleccione una figure 2D", options)
         
         if selected_option == 'Circulo':
             ratio = self.popup.read_double('Ingrese el radio del circulo')
@@ -59,7 +59,7 @@ class App:
     
     def select_3dfigure(self):
         options = ['Cuboide', 'Cubo', 'Esfera']
-        selected_option = self.popup.read_menu_choice_string("Seleccione una figure 3D", options)
+        selected_option = self.popup.read_menu_choice_combobox("Seleccione una figure 3D", options)
 
         if selected_option == 'Cubo':
             height = self.popup.read_double('Ingrese la altura del cubo')
@@ -120,20 +120,25 @@ class App:
                 "Consultar Figs. 3D",
                 "Salir"
             ]
-            selected_option = self.read_menu_choice_buttons(prompt="Seleccione una opción", options=options)
+            selected_option = self.popup.read_menu_choice_combobox('seleccione una opcion', options)
 
             match selected_option:
                     case -1:
                         self.popup.display_results('Opción invalida')
                     case 'Agregar Fig. 2D':
-                        self.select_2dfigure(self)
+                        self.select_2dfigure()
+                        break
                     case 'Agregar Fig. 3D':
-                        self.select_3dfigure(self)
+                        self.select_3dfigure()
+                        break
                     case 'Consultar Figuras':
-                        self.display_all_figures(self)
+                        self.display_all_figures()
+                        break
                     case 'Consultar Figs. 2D':
-                        self.display_2dfigures(self)
+                        self.display_2dfigures()
+                        break
                     case 'Consultar Figs. 3D':
-                        self.display_3dfigures(self)  
+                        self.display_3dfigures()
+                        break  
                     case 'Salir':
                         continuar = False

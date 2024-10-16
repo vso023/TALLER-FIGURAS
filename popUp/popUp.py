@@ -55,6 +55,33 @@ class PopUp:
         if selected_option in options:
             return selected_option
         return "" 
+    
+    def read_menu_choice_combobox(self, prompt='Seleccione una opción', options=[]):
+        # Crear una ventana emergente para mostrar el combobox
+        window = tk.Toplevel(self.root)
+        window.title(prompt)
+
+        # Crear el ComboBox
+        combo = ttk.Combobox(window, values=options, state="readonly")
+        combo.grid(column=0, row=0, padx=10, pady=10)
+
+        # Variable para almacenar la opción seleccionada
+        selected_option = tk.StringVar()
+
+        # Función para obtener el valor seleccionado y cerrar la ventana
+        def confirm_selection():
+            selected_option.set(combo.get())
+            window.destroy()
+
+        # Botón de confirmar
+        confirm_button = tk.Button(window, text="Confirmar", command=confirm_selection)
+        confirm_button.grid(column=0, row=1, padx=10, pady=10)
+
+        # Esperar a que el usuario seleccione algo
+        window.wait_window()
+
+        # Devolver la opción seleccionada
+        return selected_option.get() 
 
     def __del__(self):
         self.root.destroy()
