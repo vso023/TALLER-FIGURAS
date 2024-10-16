@@ -1,11 +1,13 @@
 import json
 from figures.IFigura3D import Figure3D
 from figures.figure import Figure
+from generator.Id_generator import IdGenerator
 
 
 class Cube(Figure, Figure3D):
     def __init__(self, height ):
-        super().__init__('Cubo')
+        figure_id = IdGenerator.id_generator()  
+        super().__init__('Cubo', figure_id)
         self.height = height
 
     def volume(self):

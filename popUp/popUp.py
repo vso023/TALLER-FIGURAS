@@ -18,12 +18,14 @@ class PopUp:
     
     def read_double(self, prompt='Ingrese un número decimal:') -> float:
         while True:
-            try:
-                user_input = simpledialog.askfloat('Input', prompt)
-                if user_input is None:
-                    return 0.0
-            except ValueError:
+            user_input = simpledialog.askfloat('Input', prompt)
+            if user_input is None:
+                return 0.0 
+            if isinstance(user_input, float):
+                return user_input
+            else:
                 messagebox.showerror('Error', 'Por favor, ingrese un número decimal válido')
+
     
     def read_int_greater_than(self, prompt= 'Ingrese un número: ', min_value = 0) -> int:
         while True:

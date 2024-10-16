@@ -1,8 +1,8 @@
-class GeneradorID:
+class IdGenerator:
     _contador = 1
 
     @classmethod
-    def generar_id(cls):
-        id_unico = f"Figura-{cls._contador}"
+    def id_generator(cls):
+        id_unico = f"{cls._contador}"
         cls._contador += 1
         return id_unico

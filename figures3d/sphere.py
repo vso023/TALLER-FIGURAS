@@ -1,11 +1,12 @@
 import json
 from figures.IFigura3D import Figure3D
 from figures.figure import Figure
-
+from generator.Id_generator import IdGenerator
 
 class Sphere(Figure, Figure3D):
     def __init__(self, ratio):
-        super().__init__('Esfera')
+        figure_id = IdGenerator.id_generator()  
+        super().__init__('Circulo', figure_id)
         self.pi = 3.14159
         self.ratio = ratio
 

@@ -1,11 +1,12 @@
 import json
 from figures.IFigura3D import Figure3D
 from figures.figure import Figure
-
+from generator.Id_generator import IdGenerator
 
 class Cuboid(Figure, Figure3D):
     def __init__(self, length, height, width):
-        super().__init__('Cuboide')
+        figure_id = IdGenerator.id_generator()  
+        super().__init__('Cuboide', figure_id)
         self.length = length
         self.height = height
         self.width = width

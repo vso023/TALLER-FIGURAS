@@ -1,11 +1,13 @@
 import json
 from figures.IFigura2D import Figure2D
 from figures.figure import Figure
+from generator.Id_generator import IdGenerator
 
 
 class Square(Figure, Figure2D ):
     def __init__(self, side):
-        super().__init__('Cuadrado')
+        figure_id = IdGenerator.id_generator()  
+        super().__init__('Cuadrado', figure_id)
         self.side = side
 
     def area(self):

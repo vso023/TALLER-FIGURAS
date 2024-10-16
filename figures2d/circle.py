@@ -1,11 +1,13 @@
 
 from figures.IFigura2D import Figure2D
 from figures.figure import Figure
+from generator.Id_generator import IdGenerator
 
 
 class Circle(Figure, Figure2D):
     def __init__(self, ratio ):
-        super().__init__('Circulo')
+        figure_id = IdGenerator.id_generator() 
+        super().__init__('Circulo', figure_id)
         self.pi = 3.14159
         self.ratio = ratio
 
