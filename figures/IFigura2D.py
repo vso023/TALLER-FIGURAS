@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class Figure2d(ABC):
+class Figure2D(ABC):
     @abstractmethod
     def perimeter(self) -> float:
         pass

@@ -1,5 +1,4 @@
 
-import json
 from figures.IFigura2D import Figure2D
 from figures.figure import Figure
 

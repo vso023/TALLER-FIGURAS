@@ -58,3 +58,4 @@ class PopUp:
 
     def __del__(self):
         self.root.destroy()
+
