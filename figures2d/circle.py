@@ -18,10 +18,10 @@ class Circle(Figure, Figure2D):
         return 2 * self.pi * self.ratio
     
     def to_dict(self):
-        return { #json.dumps() function will convert a subset of Python objects into a json string
+        return {
             "tipo": self.type,
             "id": self.id,
-            "ratio": self.ratio,
+            "radio": self.ratio,
             "area": self.area(),
             "perimetro": self.perimeter()
         }

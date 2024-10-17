@@ -40,6 +40,7 @@ class TestFigures3d(unittest.TestCase):
         }
         self.assertEqual(cube.to_dict(), expected_dict)
 
-        
+if __name__ == "__main__":
+    unittest.main()
 
     

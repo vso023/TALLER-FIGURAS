@@ -17,7 +17,7 @@ class Square(Figure, Figure2D ):
         return self.side *4
     
     def to_dict(self):
-        return { #json.dumps() function will convert a subset of Python objects into a json string
+        return {
             "tipo": self.type,
             "id": self.id,
             "side": self.side,
