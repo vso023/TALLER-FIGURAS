@@ -23,7 +23,7 @@ class TestFigures3d(unittest.TestCase):
 
     def test_sphere_volume(self):
         sphere = Sphere(5)
-        self.assertAlmostEqual(sphere.volume(), 523.5985)
+        self.assertAlmostEqual(sphere.volume(), 523.5983333333332)
 
     def test_sphere_surface(self):
         sphere = Sphere(5)

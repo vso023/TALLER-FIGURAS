@@ -6,7 +6,7 @@ from generator.Id_generator import IdGenerator
 class Sphere(Figure, Figure3D):
     def __init__(self, ratio):
         figure_id = IdGenerator.id_generator()  
-        super().__init__('Circulo', figure_id)
+        super().__init__('Esfera', figure_id)
         self.pi = 3.14159
         self.ratio = ratio
 
