@@ -6,9 +6,6 @@ class PopUp:
         self.root = tk.Tk()
         self.root.withdraw()
 
-    def run(self):
-        print('me tocó quitar el while por tu culpa y tu bullying')
-
 
     def display_results(self, message='Mensaje') -> None:
         messagebox.showinfo('Mensaje', message)
@@ -41,7 +38,7 @@ class PopUp:
                 messagebox.showerror('Error', 'Ingrese un número entero válido')
 
     def read_menu_choice_buttons(self, prompt='Seleccione una opción', options=[]) -> int:
-        selected_option = simpledialog.askstring('Input', f'{prompt}\nOpciones: {', '.join(options)}')
+        selected_option = simpledialog.askstring('Input', f'{prompt}\nOpciones: {",".join(options)}')
         if selected_option in options:
             return options.index(selected_option)
         return -1  
@@ -53,7 +50,7 @@ class PopUp:
         return -1
 
     def read_menu_choice_string(self, prompt='Seleccione una opción', options=[]) -> str:
-        selected_option = simpledialog.askstring('Input', f'{prompt}\nOpciones: {', '.join(options)}')
+        selected_option = simpledialog.askstring('Input', f'{prompt}\nOpciones: {",".join(options)}')
         if selected_option in options:
             return selected_option
         return "" 

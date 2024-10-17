@@ -19,7 +19,6 @@ class Cuboid(Figure, Figure3D):
 
     def to_dict(self):
         return {
-            #json.dumps() function will convert a subset of Python objects into a json string
             "tipo": self.type,
             "id": self.id,
             "altura": self.height,
