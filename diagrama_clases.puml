@@ -1,0 +1,118 @@
+@startuml
+
+namespace figures{
+abstract class Figure <<abstract>> {
+    +id(): void
+    +type(): void
+}
+
+' Producto abstracto
+interface IFigure2D {
+    +perimeter(): void
+    +area(): void
+}
+
+' Producto abstracto
+interface IFigure3D {
+    +volume(): void
+    +surface(): void
+}
+}
+
+namespace figures2D{
+' Creadores concretos
+class Circle {
+    +area(): void
+    +perimeter(): void
+    +to_dict(): void
+}
+
+class Square {
+    +area(): void
+    +perimeter(): void
+    +to_dict(): void
+}
+
+class Rectangle {
+    +area(): void
+    +perimeter(): void
+    +to_dict(): void
+}
+}
+
+namespace figures3D {
+class Cube {
+    +volume(): void
+    +surface(): void
+    +to_dict(): void
+}
+
+class Cuboid {
+    +volume(): void
+    +surface(): void
+    +to_dict(): void
+}
+
+class Sphere {
+    +volume(): void
+    +surface(): void
+    +to_dict(): void
+}
+}
+
+namespace generator{
+class IDGenerator {
+    +id_generator(): void
+}
+
+class JsonGenerator {
+    +figure_to_json(): void
+}
+}
+
+namespace my_App{
+class MyApp {
+    +add_figure2d(): void
+    +add_figure_3d(): void
+    +display_all_figures(): void
+    +display_2dfigures(): void
+    +display_3dfigures(): void
+    +select_2dfigure(): void
+    +select_3dfigure(): void
+    +run(): void
+}
+}
+
+namespace popUp{
+class PopUp {
+    +display_results(): void
+    +read_yes_or_no(): void
+    +read_double(): void
+    +read_int_greater_than(): void
+    +read_menu_choice_buttons(): void
+    +read_menu_choice_index(): void
+    +read_menu_choice_string(): void
+    +read_menu_choice_combobox(): void
+    
+}
+}
+
+class Main{
+    +main()
+}
+Figure <|-- Circle
+Figure <|-- Square
+Figure <|-- Rectangle
+Figure <|-- Cube
+Figure <|-- Cuboid
+Figure <|-- Sphere
+IFigure2D <.. Circle
+IFigure2D <.. Square
+IFigure2D <.. Rectangle
+IFigure3D <.. Cube
+IFigure3D <.. Cuboid
+IFigure3D <.. Sphere
+MyApp --> PopUp
+Main --> MyApp
+
+@enduml

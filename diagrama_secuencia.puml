@@ -1,0 +1,40 @@
+@startuml
+actor User
+
+participant Main
+participant App
+participant PopUp
+participant Circle
+participant Rectangle
+participant Square
+participant Cube
+participant Cuboid
+participant Sphere
+participant JsonGenerator
+
+User -> Main : main()
+Main -> App : run()
+App -> PopUp : readMenuChoiceCombobox("Seleccione una opción", options)
+PopUp -> User : Display menu
+User -> PopUp : Select option
+PopUp -> App : Option selected
+App -> App : select_2dfigure() / select_3dfigure()
+App -> PopUp : read_double("Ingrese el valor")
+PopUp -> User : Request value
+User -> PopUp : Provide value
+PopUp -> App : Value provided
+App -> Circle : new Circle(value)
+App -> Rectangle : new Rectangle(value1, value2)
+App -> Square : new Square(value)
+App -> Cube : new Cube(value)
+App -> Cuboid : new Cuboid(value1, value2, value3)
+App -> Sphere : new Sphere(value)
+App -> App : add_figure2d(figure) / add_figure3d(figure)
+App -> PopUp : display_results("Figura agregada: " + figure.toDict())
+PopUp -> User : Show result
+App -> JsonGenerator : figure_to_json(all_figures)
+JsonGenerator -> App : Return JSON
+App -> PopUp : display_results(all_figures_json)
+PopUp -> User : Show all figures
+
+@enduml
