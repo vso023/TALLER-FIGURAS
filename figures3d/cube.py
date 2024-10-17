@@ -17,7 +17,7 @@ class Cube(Figure, Figure3D):
         return 6 * (self.height ** 2)
     
     def to_dict(self):
-        return { #json.dumps() function will convert a subset of Python objects into a json string
+        return { 
             "tipo": self.type,
             "id": self.id,
             "altura": self.height,
