@@ -27,18 +27,18 @@ class PopUp:
                 messagebox.showerror('Error', 'Por favor, ingrese un número decimal válido')
 
     
-    def read_int_greater_than(self, prompt= 'Ingrese un número: ', min_value = 0) -> int:
+    def read_int_greater_than(self, prompt='Ingrese un número: ', min_value=0, default_value=1) -> int:
         while True:
             try:
-                user_input = simpledialog.askinteger('Input', f'{prompt} (Mayor que {min_value})')
+                user_input = simpledialog.askinteger('Input', f'{prompt} (Mayor que {min_value})', initialvalue=default_value)
                 if user_input is None:
-                    return min_value
+                    return default_value  # Si el usuario cancela, se devuelve el valor predeterminado
                 if user_input > min_value:
                     return user_input
                 else:
                     messagebox.showerror('Error', f'El número debe ser mayor que {min_value}')
             except ValueError:
-                messagebox.showerror('Error', 'ingrese un número entero válido')
+                messagebox.showerror('Error', 'Ingrese un número entero válido')
 
     def read_menu_choice_buttons(self, prompt='Seleccione una opción', options=[]) -> int:
         selected_option = simpledialog.askstring('Input', f'{prompt}\nOpciones: {', '.join(options)}')
