@@ -25,12 +25,12 @@ class TestFigures2d(unittest.TestCase):
         expected_dict = {
             "tipo": "Circulo",
             "id": circle.id,
-            "ratio": 5,
+            "radio": 5,
             "area": circle.area(),
             "perimetro": circle.perimeter()
         }
         self.assertEqual(circle.to_dict(), expected_dict)
 
-        
-
+if __name__ == "__main__":
+    unittest.main()
     
