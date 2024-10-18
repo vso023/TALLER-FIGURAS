@@ -1,6 +1,6 @@
 @startuml
 
-namespace figures{
+namespace figures {
 abstract class Figure <<abstract>> {
     +id(): void
     +type(): void
@@ -19,7 +19,7 @@ interface IFigure3D {
 }
 }
 
-namespace figures2D{
+namespace figures2D {
 ' Creadores concretos
 class Circle {
     +area(): void
@@ -60,17 +60,16 @@ class Sphere {
 }
 }
 
-namespace generator{
+namespace generator {
 class IDGenerator {
     +id_generator(): void
 }
-
-class JsonGenerator {
-    +figure_to_json(): void
+class JsonGenerator{
+    +figure_to_json():void
 }
 }
 
-namespace my_App{
+namespace my_App {
 class MyApp {
     +add_figure2d(): void
     +add_figure_3d(): void
@@ -83,7 +82,7 @@ class MyApp {
 }
 }
 
-namespace popUp{
+namespace popUp {
 class PopUp {
     +display_results(): void
     +read_yes_or_no(): void
@@ -93,26 +92,32 @@ class PopUp {
     +read_menu_choice_index(): void
     +read_menu_choice_string(): void
     +read_menu_choice_combobox(): void
-    
 }
 }
 
-class Main{
+class Main {
     +main()
 }
-Figure <|-- Circle
-Figure <|-- Square
-Figure <|-- Rectangle
-Figure <|-- Cube
-Figure <|-- Cuboid
-Figure <|-- Sphere
-IFigure2D <.. Circle
-IFigure2D <.. Square
-IFigure2D <.. Rectangle
-IFigure3D <.. Cube
-IFigure3D <.. Cuboid
-IFigure3D <.. Sphere
+
+Figure <|-- figures2D
+Figure <|-- figures3D
+
+IFigure2D <.. figures2D
+
+IFigure3D <.. figures3D
+
 MyApp --> PopUp
 Main --> MyApp
+
+' Relación de asociación entre IDGenerator y las figuras
+IDGenerator <-- figures2D
+IDGenerator <-- figures3D
+
+JsonGenerator <-- MyApp
+
+MyApp --> figures2D
+MyApp --> figures3D
+
+
 
 @enduml
