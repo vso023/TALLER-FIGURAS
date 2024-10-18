@@ -1,19 +1,25 @@
 @startuml
 
 namespace figures {
-abstract class Figure <<abstract>> {
+interface IFigure{
+    -figure_type
+    -figure_id
     +id(): void
     +type(): void
 }
 
 ' Producto abstracto
-interface IFigure2D {
+abstract class Figure2D <<abstract>> implements IFigure {
+    -figure_type
+    -figure_id
     +perimeter(): void
     +area(): void
 }
 
 ' Producto abstracto
-interface IFigure3D {
+abstract class Figure3D <<abstract>> implements IFigure  {
+    -figure_type
+    -figure_id
     +volume(): void
     +surface(): void
 }
@@ -22,18 +28,22 @@ interface IFigure3D {
 namespace figures2D {
 ' Creadores concretos
 class Circle {
+    -ratio
     +area(): void
     +perimeter(): void
     +to_dict(): void
 }
 
 class Square {
+    -side
     +area(): void
     +perimeter(): void
     +to_dict(): void
 }
 
 class Rectangle {
+    -length
+    -height
     +area(): void
     +perimeter(): void
     +to_dict(): void
@@ -42,18 +52,23 @@ class Rectangle {
 
 namespace figures3D {
 class Cube {
+    -ratio
     +volume(): void
     +surface(): void
     +to_dict(): void
 }
 
 class Cuboid {
+    -length
+    -height
+    -width
     +volume(): void
     +surface(): void
     +to_dict(): void
 }
 
 class Sphere {
+    -ratio
     +volume(): void
     +surface(): void
     +to_dict(): void
@@ -63,9 +78,6 @@ class Sphere {
 namespace generator {
 class IDGenerator {
     +id_generator(): void
-}
-class JsonGenerator{
-    +figure_to_json():void
 }
 }
 
@@ -98,26 +110,6 @@ class PopUp {
 class Main {
     +main()
 }
-
-Figure <|-- figures2D
-Figure <|-- figures3D
-
-IFigure2D <.. figures2D
-
-IFigure3D <.. figures3D
-
-MyApp --> PopUp
-Main --> MyApp
-
-' Relación de asociación entre IDGenerator y las figuras
-IDGenerator <-- figures2D
-IDGenerator <-- figures3D
-
-JsonGenerator <-- MyApp
-
-MyApp --> figures2D
-MyApp --> figures3D
-
 
 
 @enduml
