@@ -1,19 +1,19 @@
 import json
-from figures.IFigura3D import Figure3D
-from figures.figure import Figure
+from figures.Figure3D import Figure3D
+from figures.IFigure import Figure
 from generator.Id_generator import IdGenerator
 
 
-class Cube(Figure, Figure3D):
+class Cube(Figure3D, Figure):
     def __init__(self, height ):
         figure_id = IdGenerator.id_generator()  
         super().__init__('Cubo', figure_id)
         self.height = height
 
-    def volume(self):
+    def volume(self)->float:
         return self.height ** 3
     
-    def surface(self):
+    def surface(self)->float:
         return 6 * (self.height ** 2)
     
     def to_dict(self):

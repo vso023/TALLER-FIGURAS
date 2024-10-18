@@ -1,27 +1,27 @@
 import json
-from figures.IFigura2D import Figure2D
-from figures.figure import Figure
+from figures.Figure2D import Figure2D
+from figures.IFigure import Figure
 from generator.Id_generator import IdGenerator
 
 
-class Square(Figure, Figure2D ):
+class Square(Figure2D, Figure):
     def __init__(self, side):
-        figure_id = IdGenerator.id_generator()  
-        super().__init__('Cuadrado', figure_id)
-        self.side = side
+        super().__init__('Square')  # Llamada al constructor de la clase abstracta
+        self._side = side
 
-    def area(self):
-        return self.side** 2
-    
-    def perimeter(self):
-        return self.side *4
-    
-    def to_dict(self):
+    def area(self) -> float:
+        return self._side ** 2
+
+    def perimeter(self) -> float:
+        return 4 * self._side
+
+    def to_dict(self) -> dict:
         return {
-            "tipo": self.type,
-            "id": self.id,
-            "side": self.side,
-            "area": self.area(),
-            "perimetro": self.perimeter()
+            'tipo': self.type,
+            'id': self.id,
+            'lado': self._side,
+            'area': self.area(),
+            'perimetro': self.perimeter()
         }
+
     

@@ -1,18 +1,18 @@
-from figures.IFigura2D import Figure2D
-from figures.figure import Figure
+from figures.Figure2D import Figure2D
+from figures.IFigure import Figure
 from generator.Id_generator import IdGenerator
 
 
-class Rectangle(Figure, Figure2D):
+class Rectangle(Figure2D, Figure):
     def __init__(self, length, height):
         figure_id = IdGenerator.id_generator()  
         super().__init__('Rectangulo', figure_id)
         self.length = length
         self.height = height
 
-    def area(self):
+    def area(self)->float:
         return self.length * self.height
-    def perimeter(self):
+    def perimeter(self)->float:
         return 2 * (self.length + self.height)
     
     def to_dict(self):

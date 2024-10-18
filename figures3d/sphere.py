@@ -1,19 +1,19 @@
 import json
-from figures.IFigura3D import Figure3D
-from figures.figure import Figure
+from figures.Figure3D import Figure3D
+from figures.IFigure import Figure
 from generator.Id_generator import IdGenerator
 
-class Sphere(Figure, Figure3D):
+class Sphere(Figure3D, Figure):
     def __init__(self, ratio):
         figure_id = IdGenerator.id_generator()  
         super().__init__('Esfera', figure_id)
         self.pi = 3.14159
         self.ratio = ratio
 
-    def volume(self):
+    def volume(self) -> float:
         return (4/3) * self.pi * (self.ratio ** 3)
     
-    def surface(self):
+    def surface(self) -> float:
         return 4 * self.pi * (self.ratio ** 2)
     
     def to_dict(self):
